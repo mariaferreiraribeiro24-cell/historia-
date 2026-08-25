@@ -1,21 +1,25 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laranjal Paranaense: A Epopeia dos Ribeiro e Ferreira</title>
+  <title>A Saga dos Ribeiro e Ferreira: Do Velho Mundo à Colonização de Laranjal-PR</title>
   <style>
     :root {
-      --bg-canvas: #efebe4;        /* Pergaminho envelhecido */
-      --card-bg: #faf8f5;          /* Papel de carta claro */
-      --text-main: #23201d;        /* Grafite profundo */
-      --text-muted: #57524a;      /* Castanho terroso */
-      --border-color: #d3cbbd;    /* Borda sutil */
-      --accent-ribeiro: #8b5a2b;  /* Bronze Cobre */
-      --accent-ferreira: #4a6b5d; /* Verde Sálvia Arqueológico */
-      --accent-shared: #3b5066;   /* Azul Aço Antigo */
-      --accent-gold: #ab8135;     /* Ouro Velho */
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+      --bg-canvas: #e8e3d9;        /* Pergaminho antigo denso */
+      --card-bg: #fdfbf7;          /* Papel de carta marfim */
+      --text-main: #1c1a17;        /* Grafite de alta densidade */
+      --text-muted: #4a453e;      /* Sépia escuro */
+      --border-color: #c4b8a5;    /* Borda envelhecida */
+      
+      /* Cores Temáticas do Mapa Mental */
+      --c-ribeiro: #8c3a2b;       /* Terracota / Vinho Histórico */
+      --c-ferreira: #2a5a44;      /* Verde Esmeralda Arqueológico */
+      --c-shared: #2b4c6f;        /* Azul Marinho Antigo */
+      --c-gold: #b37d14;          /* Ouro Ocre */
+      --c-purple: #5c3c67;        /* Púrpura Imperial */
+      
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -28,57 +32,49 @@
       font-family: 'Georgia', 'Times New Roman', serif;
       background-color: var(--bg-canvas);
       color: var(--text-main);
-      line-height: 1.6;
-      padding: 40px 20px;
+      line-height: 1.7;
+      padding: 50px 20px;
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1600px; /* Tela bem ampla para o mapa gigante */
       margin: 0 auto;
     }
 
     header {
       text-align: center;
-      padding: 45px 25px;
+      padding: 50px 30px;
       background-color: var(--card-bg);
-      border: 2px solid var(--border-color);
-      border-radius: 12px;
+      border: 3px double var(--border-color);
+      border-radius: 16px;
       box-shadow: var(--shadow);
-      margin-bottom: 40px;
-      position: relative;
-    }
-
-    header::after {
-      content: '❖';
-      display: block;
-      font-size: 1.2rem;
-      color: var(--accent-gold);
-      margin-top: 15px;
+      margin-bottom: 50px;
     }
 
     .badge {
       font-family: sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 3px;
+      font-size: 0.85rem;
+      letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--accent-gold);
+      color: var(--c-gold);
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       display: inline-block;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--text-main);
       font-weight: normal;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
+      line-height: 1.2;
     }
 
     header p {
       font-style: italic;
       color: var(--text-muted);
-      font-size: 1.1rem;
-      max-width: 800px;
+      font-size: 1.2rem;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -87,131 +83,134 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 40px;
+      gap: 50px;
     }
 
     /* Núcleo Central */
     .central-core {
-      background: linear-gradient(135deg, var(--card-bg), #f3eee6);
-      border: 3px double var(--accent-gold);
-      padding: 30px 45px;
-      border-radius: 16px;
+      background: linear-gradient(145deg, #ffffff, #f4eee2);
+      border: 4px double var(--c-gold);
+      padding: 40px 60px;
+      border-radius: 20px;
       text-align: center;
       box-shadow: var(--shadow);
-      max-width: 650px;
+      max-width: 900px;
       width: 100%;
     }
 
     .central-core h2 {
-      font-size: 1.7rem;
+      font-size: 2.2rem;
       color: var(--text-main);
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       font-weight: normal;
     }
 
     .central-core p {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: var(--text-muted);
     }
 
-    /* Grid do Mapa Mental */
-    .branches-container {
+    /* Layout dos Ramos do Mapa Mental */
+    .branches-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 40px;
       width: 100%;
     }
 
-    .branch-box {
+    .branch-card {
       background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 25px;
+      border: 2px solid var(--border-color);
+      border-radius: 14px;
+      padding: 35px;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 25px;
       position: relative;
     }
 
-    .branch-box::before {
+    .branch-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 6px;
-      border-radius: 10px 10px 0 0;
+      height: 8px;
+      border-radius: 14px 14px 0 0;
     }
 
-    .b-1::before { background-color: var(--accent-gold); }
-    .b-2::before { background-color: var(--accent-shared); }
-    .b-3::before { background-color: var(--accent-ribeiro); }
-    .b-4::before { background-color: var(--accent-ferreira); }
-    .b-5::before { background-color: var(--text-main); }
+    .b-1::before { background-color: var(--c-purple); }
+    .b-2::before { background-color: var(--c-shared); }
+    .b-3::before { background-color: var(--c-gold); }
+    .b-4::before { background-color: var(--c-ribeiro); }
+    .b-5::before { background-color: var(--c-ferreira); }
 
     .branch-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 15px;
     }
 
     .branch-title h3 {
-      font-size: 1.25rem;
+      font-size: 1.6rem;
       font-weight: normal;
       color: var(--text-main);
     }
 
     .node-number {
       font-family: sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: bold;
       background-color: var(--bg-canvas);
-      padding: 4px 10px;
+      padding: 6px 14px;
       border-radius: 20px;
-      color: var(--text-muted);
+      color: var(--text-main);
       border: 1px solid var(--border-color);
     }
 
     .subtopic-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
 
     .subcard {
       background-color: var(--bg-canvas);
-      padding: 15px;
-      border-radius: 6px;
-      border-left: 4px solid var(--border-color);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 6px solid var(--border-color);
     }
 
-    .subcard.ribeiro { border-left-color: var(--accent-ribeiro); }
-    .subcard.ferreira { border-left-color: var(--accent-ferreira); }
-    .subcard.shared { border-left-color: var(--accent-shared); }
-    .subcard.gold { border-left-color: var(--accent-gold); }
+    .subcard.ribeiro { border-left-color: var(--c-ribeiro); }
+    .subcard.ferreira { border-left-color: var(--c-ferreira); }
+    .subcard.shared { border-left-color: var(--c-shared); }
+    .subcard.gold { border-left-color: var(--c-gold); }
+    .subcard.purple { border-left-color: var(--c-purple); }
 
     .subcard h4 {
-      font-size: 0.95rem;
-      margin-bottom: 6px;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
       color: var(--text-main);
-      display: flex;
-      justify-content: space-between;
     }
 
     .subcard p {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       text-align: justify;
+      margin-bottom: 10px;
     }
 
     .subcard ul {
-      margin-top: 6px;
-      margin-left: 18px;
-      font-size: 0.85rem;
+      margin-left: 20px;
+      font-size: 0.9rem;
       color: var(--text-muted);
+    }
+
+    .subcard ul li {
+      margin-bottom: 5px;
     }
 
     .span-full {
@@ -220,16 +219,16 @@
 
     footer {
       text-align: center;
-      margin-top: 50px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
+      margin-top: 60px;
+      padding-top: 25px;
+      border-top: 2px solid var(--border-color);
       font-family: sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
     }
 
-    @media (max-width: 900px) {
-      .branches-container {
+    @media (max-width: 1100px) {
+      .branches-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -239,120 +238,134 @@
 
   <div class="container">
     <header>
-      <span class="badge">Investigação Genealógica e Cartográfica</span>
-      <h1>Laranjal Paranaense: A Epopeia dos Ribeiro e Ferreira</h1>
-      <p>Cartografia mental dos fluxos migratórios, dinâmicas socioculturais e ocupação territorial na formação do município</p>
+      <span class="badge">Pesquisa Histórica, Cartográfica e Genealógica</span>
+      <h1>A Saga dos Ribeiro e Ferreira: Do Velho Mundo à Colonização de Laranjal - PR</h1>
+      <p>Mapa mental expandido das origens europeias, da travessia ultramarina, do tropeirismo e do papel crucial na formação do município</p>
     </header>
 
     <div class="mindmap">
       
-      <!-- NÓ CENTRAL -->
+      <!-- NÓ CENTRAL GIGANTE -->
       <div class="central-core">
-        <h2>Laranjal: Ponto de Convergência Histórica</h2>
-        <p>A intersecção das famílias Ribeiro e Ferreira na formação social, econômica e política do Vale do Piquiri/Palmital</p>
+        <h2>Ponto de Convergência Histórica</h2>
+        <p>Como a união das linhagens Ribeiro e Ferreira impulsionou o desenvolvimento econômico, a ocupação das terras e a criação da infraestrutura social de Laranjal - PR</p>
       </div>
 
-      <!-- RAMIFICAÇÕES -->
-      <div class="branches-container">
+      <!-- GRID DE RAMIFICAÇÕES -->
+      <div class="branches-grid">
 
         <!-- RAMO 1 -->
-        <div class="branch-box b-1">
+        <div class="branch-card b-1">
           <div class="branch-title">
-            <h3>1. Raízes e Etimologia na Europa Medieval</h3>
-            <span class="node-number">Módulo I</span>
+            <h3>1. Raízes e Heráldica na Europa Medieval</h3>
+            <span class="node-number">Módulo I • Séculos XI a XIV</span>
           </div>
           <div class="subtopic-grid">
             <div class="subcard ribeiro">
-              <h4>Gênese Ribeiro <span>Toponímico</span></h4>
-              <p>Originado no Norte de Portugal (século XII). Derivado do latim <i>Rivarius</i> (aquele que habita à margem de cursos d'água).</p>
+              <h4>Linhagem Ribeiro (Toponímico)</h4>
+              <p>Surgido nas terras fluviais do Norte de Portugal (região do Entre-Douro-e-Minho), derivado do latim <i>Rivarius</i>.</p>
               <ul>
-                <li>Associado a cavaleiros medievais no Minho.</li>
-                <li>Símbolo Heráldico: Faixas prateadas e onduladas.</li>
+                <li>Consolidado pelo cavaleiro medieval D. Dinis Ribeiro.</li>
+                <li>Simbolismo: Moradores das margens dos rios e vales.</li>
+                <li>Brasão: Faixas prateadas lembrando o fluxo de águas.</li>
               </ul>
             </div>
             <div class="subcard ferreira">
-              <h4>Gênese Ferreira <span>Ocupacional</span></h4>
-              <p>Surgido de vilas mineradoras da Península Ibérica. Do latim <i>Ferraria</i> (abundância em ferro ou oficinas de forja).</p>
+              <h4>Linhagem Ferreira (Ocupacional)</h4>
+              <p>Origem ligada às vilas de mineração de ferro da Península Ibérica, do latim <i>Ferraria</i> (oficina de forja/mina).</p>
               <ul>
-                <li>Consolidado por D. Roderico Ferraria.</li>
-                <li>Símbolo Heráldico: Campo de ouro com ferro e estacas.</li>
+                <li>Associado a D. Roderico Ferraria na Idade Média.</li>
+                <li>Simbolismo: Mestres da metalurgia, ferramentas e armas.</li>
+                <li>Brasão: Campo em ouro com quatro faixas e estacas de ferro.</li>
               </ul>
             </div>
           </div>
         </div>
 
         <!-- RAMO 2 -->
-        <div class="branch-card branch-box b-2">
+        <div class="branch-card b-2">
           <div class="branch-title">
-            <h3>2. Travessia Atlântica e Integração Colonial</h3>
-            <span class="node-number">Módulo II</span>
+            <h3>2. Chegada ao Brasil Colonial e Mestiçagem</h3>
+            <span class="node-number">Módulo II • Séculos XVI a XVII</span>
           </div>
           <div class="subtopic-grid">
             <div class="subcard shared">
-              <h4>Desembarque Colonial (Séc. XVI-XVII)</h4>
-              <p>Fixação nas capitanias de São Vicente, Bahia e Rio de Janeiro. Atuação na administração militar e estruturação de engenhos.</p>
+              <h4>Entrada pelas Capitanias Litorâneas</h4>
+              <p>Primeiros desembarques nas capitanias de São Vicente, Bahia e Rio de Janeiro para atuação no povoamento e na administração militar colonial.</p>
             </div>
-            <div class="subcard gold">
-              <h4>Miscelânea Cultural e Batismos</h4>
-              <p>Adoção em massa dos sobrenomes por populações autóctones (indígenas catequizados) e libertos afro-brasileiros via registros paroquiais, tornando-se nomes de relevância comunitária.</p>
+            <div class="subcard shared">
+              <h4>Economia Açucareira e Comércio</h4>
+              <p>Atuação no Nordeste e Sul do país, fornecendo ferramentas de metal (Ferreira) e gerindo engenhos e canais de escoamento (Ribeiro).</p>
+            </div>
+            <div class="subcard purple span-full">
+              <h4>Universalização dos Nomes via Batismos</h4>
+              <p>Durante os séculos XVII e XVIII, os dois sobrenomes foram amplamente atribuídos a indígenas catequizados e populações afro-brasileiras libertas nos registros paroquiais da Igreja Católica, tornando-se nomes de grande relevância demográfica.</p>
             </div>
           </div>
         </div>
 
         <!-- RAMO 3 -->
-        <div class="branch-card branch-box b-3">
+        <div class="branch-card b-3">
           <div class="branch-title">
-            <h3>3. A Expansão pelo Tropeirismo e Campos Gerais</h3>
-            <span class="node-number">Módulo III</span>
+            <h3>3. Bandeirismo e Tropeirismo Rumo ao Sul</h3>
+            <span class="node-number">Módulo III • Século XVIII</span>
           </div>
           <div class="subtopic-grid">
-            <div class="subcard ribeiro">
-              <h4>Rotas de Integração</h4>
-              <p>Deslocamento do interior paulista rumo ao Sul pela rota Viamão–Sorocaba durante o ciclo da pecuária e abastecimento das minas.</p>
+            <div class="subcard gold">
+              <h4>Mineração e Pecuária</h4>
+              <p>Participação nas bandeiras paulistas rumo a Minas Gerais. Com o declínio do ouro, as famílias redirecionaram investimentos para a criação extensiva de gado e mulas.</p>
             </div>
-            <div class="subcard ferreira">
-              <h4>Povoamento Paranaense</h4>
-              <p>Estabelecimento nos Campos Gerais (Ponta Grossa, Castro, Lapa). Atuação na criação de mulas, pontes de passagem e feiras locais.</p>
+            <div class="subcard gold">
+              <h4>A Rota Viamão–Sorocaba</h4>
+              <p>Atuação direta na condução de tropas de animais ao longo do Caminho dos Tropas, cruzando o território paranaense do sul ao norte.</p>
+            </div>
+            <div class="subcard shared span-full">
+              <h4>Povoamento dos Campos Gerais</h4>
+              <p>Fixação de núcleos familiares ao longo das paradas tropeiras, originando vilas históricas como Castro, Lapa, Ponta Grossa e Curitiba, que serviram de base para a expansão em direção ao interior do estado.</p>
             </div>
           </div>
         </div>
 
         <!-- RAMO 4 -->
-        <div class="branch-card branch-box b-4">
+        <div class="branch-card b-4">
           <div class="branch-title">
-            <h3>4. Avanço Rumo ao Sertão do Centro-Sul</h3>
-            <span class="node-number">Módulo IV</span>
+            <h3>4. Expansão para o Centro-Sul Paranaense</h3>
+            <span class="node-number">Módulo IV • Século XIX ao XX</span>
           </div>
           <div class="subtopic-grid">
-            <div class="subcard shared">
-              <h4>Extrativismo e Madeira (Séc. XIX-XX)</h4>
-              <p>Interiorização impulsionada pela exploração da erva-mate e pinheirais. Migração do planalto de Guarapuava para Pitanga e Palmital.</p>
+            <div class="subcard ribeiro">
+              <h4>Ciclos da Erva-Mate e da Madeira</h4>
+              <p>Ramos da família Ribeiro integraram o ciclo extrativista, avançando dos Campos Gerais rumo ao Terceiro Planalto (Guarapuava, Pitanga e Palmital).</p>
             </div>
-            <div class="subcard shared">
-              <h4>Abertura de Picadas</h4>
-              <p>Condução de comitivas para mapeamento e ocupação de vales férteis no interior do Estado, enfrentando relevos acidentados.</p>
+            <div class="subcard ferreira">
+              <h4>Abertura de Picadas e Estradas</h4>
+              <p>Membros da família Ferreira lideraram comitivas para abertura de caminhos rústicos, pontes de madeira e transporte de safras por regiões de mata virgem.</p>
             </div>
           </div>
         </div>
 
-        <!-- RAMO 5: DESTAQUE LARANJAL -->
-        <div class="branch-card branch-box b-5 span-full">
+        <!-- RAMO 5: O NÚCLEO EM LARANJAL-PR -->
+        <div class="branch-card b-5 span-full">
           <div class="branch-title">
-            <h3>5. A Fixação e o Legado no Município de Laranjal - PR</h3>
-            <span class="node-number">Módulo V • Núcleo Local</span>
+            <h3>5. A Fixação, Ocupação e Legado no Município de Laranjal - PR</h3>
+            <span class="node-number">Módulo V • Núcleo Municipal</span>
           </div>
           <div class="subtopic-grid">
             <div class="subcard ribeiro">
-              <h4>Fixação Agrícola e Pecuária</h4>
-              <p>Assentamento das primeiras gerações nas proximidades dos rios Piquiri e Palmital. Dedicação à agricultura familiar de subsistência e manejo pecuário.</p>
+              <h4>Pioneirismo Agrícola e Pecuário</h4>
+              <p>Assentamento pioneiro no vale dos rios Palmital e Piquiri, estabelecendo pequenas e médias propriedades focadas na agricultura familiar, criação de suínos e gado.</p>
             </div>
             <div class="subcard ferreira">
-              <h4>Comércio e Infraestrutura</h4>
-              <p>Liderança na instalação dos primeiros armazéns de secos e molhados, pontes rústicas sobre riachos e logística de transporte de grãos.</p>
+              <h4>Infraestrutura e Comércio Local</h4>
+              <p>Instalação dos primeiros armazéns de secos e molhados, oficinas de manutenção de ferramentas rurais e logística de escoamento para os grandes centros.</p>
             </div>
             <div class="subcard gold">
-              <h4>Desenvolvimento Comunitário e Político</h4>
-              <p>Participação ativa de membros de ambas as famílias na doação de terrenos para capelas, edificação das primeiras escolas rurais e apoio direto ao movimento de emancipação política de Laranjal.</p>
+              <h4>Edificação Comunitária</h4>
+              <p>Doação de terrenos e liderança na construção das primeiras capelas locais, cemitérios e pequenas escolas rurais para atender às famílias do interior.</p>
+            </div>
+            <div class="subcard purple">
+              <h4>Luta pela Emancipação Política</h4>
+              <p>Envolvimento direto de líderes Ribeiro e Ferreira no movimento comunitário que culminou na emancipação e consolidação do município de Laranjal - PR.</p>
             </div>
           </div>
         </div>
@@ -362,7 +375,7 @@
     </div>
 
     <footer>
-      <p>Trabalho de História • Estudo Histórico e Geográfico de Formação Territorial e Genealógica</p>
+      <p>Trabalho de História • Estudo Histórico e Genealógico de Formação Territorial</p>
     </footer>
   </div>
 
