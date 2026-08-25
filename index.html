@@ -6,20 +6,20 @@
   <title>A Saga dos Ribeiro e Ferreira: Do Velho Mundo à Colonização de Laranjal-PR</title>
   <style>
     :root {
-      --bg-canvas: #e8e3d9;        /* Pergaminho antigo denso */
-      --card-bg: #fdfbf7;          /* Papel de carta marfim */
-      --text-main: #1c1a17;        /* Grafite de alta densidade */
-      --text-muted: #4a453e;      /* Sépia escuro */
-      --border-color: #c4b8a5;    /* Borda envelhecida */
+      --bg-canvas: #f8f6f0;        /* Creme Suave */
+      --card-bg: #ffffff;          /* Branco Puro */
+      --text-main: #333333;        /* Cinza Escuro Suave */
+      --text-muted: #666666;      /* Cinza Médio */
+      --border-color: #e2ddd5;    /* Borda Sutil */
       
-      /* Cores Temáticas do Mapa Mental */
-      --c-ribeiro: #8c3a2b;       /* Terracota / Vinho Histórico */
-      --c-ferreira: #2a5a44;      /* Verde Esmeralda Arqueológico */
-      --c-shared: #2b4c6f;        /* Azul Marinho Antigo */
-      --c-gold: #b37d14;          /* Ouro Ocre */
-      --c-purple: #5c3c67;        /* Púrpura Imperial */
+      /* Cores Pastel do Mapa Mental */
+      --p-blue: #d4e6f1;          /* Azul Pastel */
+      --p-green: #d5e8d4;         /* Verde Pastel */
+      --p-pink: #f8cecc;          /* Rosa Pastel */
+      --p-yellow: #fff2cc;        /* Amarelo Pastel */
+      --p-purple: #e1d5e7;        /* Lavanda Pastel */
       
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
     }
 
     * {
@@ -29,7 +29,7 @@
     }
 
     body {
-      font-family: 'Georgia', 'Times New Roman', serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--bg-canvas);
       color: var(--text-main);
       line-height: 1.7;
@@ -45,35 +45,33 @@
       text-align: center;
       padding: 50px 30px;
       background-color: var(--card-bg);
-      border: 3px double var(--border-color);
+      border: 2px solid var(--border-color);
       border-radius: 16px;
       box-shadow: var(--shadow);
       margin-bottom: 50px;
     }
 
     .badge {
-      font-family: sans-serif;
       font-size: 0.85rem;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      color: var(--c-gold);
+      color: #7b8a8b;
       font-weight: bold;
       margin-bottom: 12px;
       display: inline-block;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: var(--text-main);
-      font-weight: normal;
+      font-weight: 600;
       margin-bottom: 15px;
       line-height: 1.2;
     }
 
     header p {
-      font-style: italic;
       color: var(--text-muted);
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -88,8 +86,8 @@
 
     /* Núcleo Central */
     .central-core {
-      background: linear-gradient(145deg, #ffffff, #f4eee2);
-      border: 4px double var(--c-gold);
+      background-color: var(--card-bg);
+      border: 3px solid var(--p-yellow);
       padding: 40px 60px;
       border-radius: 20px;
       text-align: center;
@@ -99,10 +97,10 @@
     }
 
     .central-core h2 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       color: var(--text-main);
       margin-bottom: 12px;
-      font-weight: normal;
+      font-weight: 600;
     }
 
     /* Estilo da Imagem em Destaque */
@@ -112,13 +110,13 @@
       height: auto;
       margin: 20px auto;
       display: block;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 2px solid var(--border-color);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
     .central-core p {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--text-muted);
     }
 
@@ -133,7 +131,7 @@
     .branch-card {
       background-color: var(--card-bg);
       border: 2px solid var(--border-color);
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 35px;
       box-shadow: var(--shadow);
       display: flex;
@@ -148,39 +146,37 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 8px;
-      border-radius: 14px 14px 0 0;
+      height: 10px;
+      border-radius: 16px 16px 0 0;
     }
 
-    .b-1::before { background-color: var(--c-purple); }
-    .b-2::before { background-color: var(--c-shared); }
-    .b-3::before { background-color: var(--c-gold); }
-    .b-4::before { background-color: var(--c-ribeiro); }
-    .b-5::before { background-color: var(--c-ferreira); }
+    .b-1::before { background-color: var(--p-purple); }
+    .b-2::before { background-color: var(--p-blue); }
+    .b-3::before { background-color: var(--p-yellow); }
+    .b-4::before { background-color: var(--p-pink); }
+    .b-5::before { background-color: var(--p-green); }
 
     .branch-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--border-color);
+      border-bottom: 2px solid var(--bg-canvas);
       padding-bottom: 15px;
     }
 
     .branch-title h3 {
-      font-size: 1.6rem;
-      font-weight: normal;
+      font-size: 1.5rem;
+      font-weight: 600;
       color: var(--text-main);
     }
 
     .node-number {
-      font-family: sans-serif;
       font-size: 0.85rem;
       font-weight: bold;
       background-color: var(--bg-canvas);
       padding: 6px 14px;
       border-radius: 20px;
-      color: var(--text-main);
-      border: 1px solid var(--border-color);
+      color: var(--text-muted);
     }
 
     .subtopic-grid {
@@ -190,27 +186,26 @@
     }
 
     .subcard {
-      background-color: var(--bg-canvas);
       padding: 20px;
-      border-radius: 8px;
-      border-left: 6px solid var(--border-color);
+      border-radius: 12px;
     }
 
-    .subcard.ribeiro { border-left-color: var(--c-ribeiro); }
-    .subcard.ferreira { border-left-color: var(--c-ferreira); }
-    .subcard.shared { border-left-color: var(--c-shared); }
-    .subcard.gold { border-left-color: var(--c-gold); }
-    .subcard.purple { border-left-color: var(--c-purple); }
+    .subcard.pink { background-color: var(--p-pink); }
+    .subcard.green { background-color: var(--p-green); }
+    .subcard.blue { background-color: var(--p-blue); }
+    .subcard.yellow { background-color: var(--p-yellow); }
+    .subcard.purple { background-color: var(--p-purple); }
 
     .subcard h4 {
       font-size: 1.1rem;
       margin-bottom: 8px;
       color: var(--text-main);
+      font-weight: 600;
     }
 
     .subcard p {
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: #444444;
       text-align: justify;
       margin-bottom: 10px;
     }
@@ -218,7 +213,7 @@
     .subcard ul {
       margin-left: 20px;
       font-size: 0.9rem;
-      color: var(--text-muted);
+      color: #444444;
     }
 
     .subcard ul li {
@@ -234,7 +229,6 @@
       margin-top: 60px;
       padding-top: 25px;
       border-top: 2px solid var(--border-color);
-      font-family: sans-serif;
       font-size: 0.9rem;
       color: var(--text-muted);
     }
@@ -277,7 +271,7 @@
             <span class="node-number">Módulo I • Séculos XI a XIV</span>
           </div>
           <div class="subtopic-grid">
-            <div class="subcard ribeiro">
+            <div class="subcard pink">
               <h4>Linhagem Ribeiro (Toponímico)</h4>
               <p>Surgido nas terras fluviais do Norte de Portugal (região do Entre-Douro-e-Minho), derivado do latim <i>Rivarius</i>.</p>
               <ul>
@@ -286,7 +280,7 @@
                 <li>Brasão: Faixas prateadas lembrando o fluxo de águas.</li>
               </ul>
             </div>
-            <div class="subcard ferreira">
+            <div class="subcard green">
               <h4>Linhagem Ferreira (Ocupacional)</h4>
               <p>Origem ligada às vilas de mineração de ferro da Península Ibérica, do latim <i>Ferraria</i> (oficina de forja/mina).</p>
               <ul>
@@ -305,11 +299,11 @@
             <span class="node-number">Módulo II • Séculos XVI a XVII</span>
           </div>
           <div class="subtopic-grid">
-            <div class="subcard shared">
+            <div class="subcard blue">
               <h4>Entrada pelas Capitanias Litorâneas</h4>
               <p>Primeiros desembarques nas capitanias de São Vicente, Bahia e Rio de Janeiro para atuação no povoamento e na administração militar colonial.</p>
             </div>
-            <div class="subcard shared">
+            <div class="subcard blue">
               <h4>Economia Açucareira e Comércio</h4>
               <p>Atuação no Nordeste e Sul do país, fornecendo ferramentas de metal (Ferreira) e gerindo engenhos e canais de escoamento (Ribeiro).</p>
             </div>
@@ -327,15 +321,15 @@
             <span class="node-number">Módulo III • Século XVIII</span>
           </div>
           <div class="subtopic-grid">
-            <div class="subcard gold">
+            <div class="subcard yellow">
               <h4>Mineração e Pecuária</h4>
               <p>Participação nas bandeiras paulistas rumo a Minas Gerais. Com o declínio do ouro, as famílias redirecionaram investimentos para a criação extensiva de gado e mulas.</p>
             </div>
-            <div class="subcard gold">
+            <div class="subcard yellow">
               <h4>A Rota Viamão–Sorocaba</h4>
               <p>Atuação direta na condução de tropas de animais ao longo do Caminho dos Tropas, cruzando o território paranaense do sul ao norte.</p>
             </div>
-            <div class="subcard shared span-full">
+            <div class="subcard blue span-full">
               <h4>Povoamento dos Campos Gerais</h4>
               <p>Fixação de núcleos familiares ao longo das paradas tropeiras, originando vilas históricas como Castro, Lapa, Ponta Grossa e Curitiba, que serviram de base para a expansão em direção ao interior do estado.</p>
             </div>
@@ -349,11 +343,11 @@
             <span class="node-number">Módulo IV • Século XIX ao XX</span>
           </div>
           <div class="subtopic-grid">
-            <div class="subcard ribeiro">
+            <div class="subcard pink">
               <h4>Ciclos da Erva-Mate e da Madeira</h4>
               <p>Ramos da família Ribeiro integraram o ciclo extrativista, avançando dos Campos Gerais rumo ao Terceiro Planalto (Guarapuava, Pitanga e Palmital).</p>
             </div>
-            <div class="subcard ferreira">
+            <div class="subcard green">
               <h4>Abertura de Picadas e Estradas</h4>
               <p>Membros da família Ferreira lideraram comitivas para abertura de caminhos rústicos, pontes de madeira e transporte de safras por regiões de mata virgem.</p>
             </div>
@@ -367,15 +361,15 @@
             <span class="node-number">Módulo V • Núcleo Municipal</span>
           </div>
           <div class="subtopic-grid">
-            <div class="subcard ribeiro">
+            <div class="subcard pink">
               <h4>Pioneirismo Agrícola e Pecuário</h4>
               <p>Assentamento pioneiro no vale dos rios Palmital e Piquiri, estabelecendo pequenas e médias propriedades focadas na agricultura familiar, criação de suínos e gado.</p>
             </div>
-            <div class="subcard ferreira">
+            <div class="subcard green">
               <h4>Infraestrutura e Comércio Local</h4>
               <p>Instalação dos primeiros armazéns de secos e molhados, oficinas de manutenção de ferramentas rurais e logística de escoamento para os grandes centros.</p>
             </div>
-            <div class="subcard gold">
+            <div class="subcard yellow">
               <h4>Edificação Comunitária</h4>
               <p>Doação de terrenos e liderança na construção das primeiras capelas locais, cemitérios e pequenas escolas rurais para atender às famílias do interior.</p>
             </div>
