@@ -1,147 +1,382 @@
-<!DOCTYPE html>
+><!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Trajetória do Sobrenome Ribeiro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Trajetória e Origem da Família Ribeiro: De Portugal a Laranjal-PR</title>
   <style>
+    :root {
+      --primary-color: #1e3d59;
+      --secondary-color: #17b978;
+      --accent-color: #ff6e40;
+      --bg-color: #f5f7fa;
+      --card-bg: #ffffff;
+      --text-dark: #2c3e50;
+      --text-muted: #6c757d;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding: 40px 20px;
     }
-    .tree {
-      width: 100%;
-      max-width: 900px;
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
     }
-    .tree ul {
-      padding-top: 20px; 
-      position: relative;
-      transition: all 0.5s;
-    }
-    .tree li {
-      float: left; 
+
+    /* Cabeçalho */
+    header {
       text-align: center;
-      list-style-type: none;
-      position: relative;
-      padding: 20px 5px 0 5px;
-      transition: all 0.5s;
+      margin-bottom: 60px;
+      padding: 40px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, #2b580c 100%);
+      color: white;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
     }
-    .tree li::before, .tree li::after {
-      content: '';
-      position: absolute; 
-      top: 0; 
-      right: 50%;
-      border-top: 2px solid #ccc;
-      width: 50%; 
-      height: 20px;
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
     }
-    .tree li::after {
-      right: auto; 
-      left: 50%;
-      border-left: 2px solid #ccc;
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto 20px;
     }
-    .tree li:only-child::after, .tree li:only-child::before {
-      display: none;
-    }
-    .tree li:only-child { 
-      padding-top: 0;
-    }
-    .tree li:first-child::before, .tree li:last-child::after {
-      border: none;
-    }
-    .tree li:last-child::before {
-      border-right: 2px solid #ccc;
-      border-radius: 0 5px 0 0;
-    }
-    .tree li:first-child::after {
-      border-radius: 5px 0 0 0;
-    }
-    .tree ul ul::before {
-      content: '';
-      position: absolute; 
-      top: 0; 
-      left: 50%;
-      border-left: 2px solid #ccc;
-      width: 0; 
-      height: 20px;
-    }
-    .node {
-      border: 2px solid #2c3e50;
-      padding: 10px 15px;
-      background-color: #ffffff;
-      color: #333;
-      border-radius: 8px;
+
+    .subtitle-badge {
       display: inline-block;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      font-size: 14px;
+      background: var(--accent-color);
+      color: white;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    .root {
-      background-color: #2c3e50;
-      color: #fff;
+
+    /* Estrutura da Linha do Tempo */
+    .timeline {
+      position: relative;
+      padding: 20px 0;
+    }
+
+    /* Linha vertical central */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: #cbd5e1;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    /* Item da linha do tempo */
+    .timeline-item {
+      position: relative;
+      margin-bottom: 50px;
+      width: 100%;
+      display: flex;
+    }
+
+    .timeline-item:nth-child(odd) {
+      justify-content: flex-start;
+    }
+
+    .timeline-item:nth-child(even) {
+      justify-content: flex-end;
+    }
+
+    /* Nós centrais numerados */
+    .timeline-node {
+      position: absolute;
+      top: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 44px;
+      background-color: var(--primary-color);
+      border: 4px solid #ffffff;
+      border-radius: 50%;
+      z-index: 10;
+      box-shadow: 0 0 0 4px rgba(30, 61, 89, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 1.1rem;
     }
-    .highlight {
-      background-color: #e74c3c;
-      color: #fff;
-      border-color: #c0392b;
-      font-weight: bold;
+
+    .timeline-item:nth-child(even) .timeline-node {
+      background-color: var(--secondary-color);
+      box-shadow: 0 0 0 4px rgba(23, 185, 120, 0.2);
     }
-    .sub-item {
-      font-size: 11px;
-      color: #555;
-      margin-top: 4px;
-      text-align: left;
+
+    .timeline-item.highlight .timeline-node {
+      background-color: var(--accent-color);
+      box-shadow: 0 0 0 4px rgba(255, 110, 64, 0.3);
+    }
+
+    /* Cards de Conteúdo */
+    .timeline-content {
+      width: 45%;
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      border-top: 5px solid var(--primary-color);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      border-top-color: var(--secondary-color);
+    }
+
+    .timeline-item.highlight .timeline-content {
+      border-top-color: var(--accent-color);
+      background: #fffdfb;
+    }
+
+    .timeline-content:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    }
+
+    .date-tag {
+      display: inline-block;
+      font-weight: 700;
+      color: var(--primary-color);
+      background-color: #e2e8f0;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    .timeline-item:nth-child(even) .date-tag {
+      color: #0f766e;
+      background-color: #ccfbf1;
+    }
+
+    .timeline-item.highlight .date-tag {
+      color: #c2410c;
+      background-color: #ffedd5;
+    }
+
+    .timeline-content h2 {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin-bottom: 15px;
+    }
+
+    .timeline-content p {
+      font-size: 0.98rem;
+      color: #475569;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .detail-box {
+      background-color: #f8fafc;
+      border-left: 3px solid var(--primary-color);
+      padding: 12px 15px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.92rem;
+      margin-top: 15px;
+    }
+
+    .timeline-item:nth-child(even) .detail-box {
+      border-left-color: var(--secondary-color);
+    }
+
+    .timeline-item.highlight .detail-box {
+      border-left-color: var(--accent-color);
+      background-color: #fff7ed;
+    }
+
+    .detail-box ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    .detail-box li {
+      margin-bottom: 6px;
+    }
+
+    /* Card de Conclusão */
+    .summary-card {
+      background: white;
+      border-radius: 12px;
+      padding: 35px;
+      margin-top: 40px;
+      box-shadow: var(--shadow);
+      border-left: 6px solid var(--primary-color);
+    }
+
+    .summary-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Layout Responsivo para Telas Menores e Celulares */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 30px;
+      }
+
+      .timeline-node {
+        left: 30px;
+      }
+
+      .timeline-item {
+        justify-content: flex-start !important;
+      }
+
+      .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 80px;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="tree">
-  <ul>
-    <li>
-      <div class="node root">Sobrenome RIBEIRO</div>
-      <ul>
-        <li>
-          <div class="node">1. Origem em Portugal</div>
-          <div class="sub-item">
-            • Toponímica (Latim <i>Rivarius</i>)<br>
-            • Moradores próximos a rios<br>
-            • Norte de Portugal (Minho/Douro)<br>
-            • Nobreza medieval (D. Dinis Ribeiro)
+  <div class="container">
+    <header>
+      <span class="subtitle-badge">Trabalho de História</span>
+      <h1>A Trajetória do Sobrenome Ribeiro</h1>
+      <p>Da Origem Medieval em Portugal à Formação Histórica e Povoamento do Paraná e Laranjal-PR</p>
+    </header>
+
+    <div class="timeline">
+
+      <!-- FASE 1 -->
+      <div class="timeline-item">
+        <div class="timeline-node">1</div>
+        <div class="timeline-content">
+          <span class="date-tag">Século XI - XIV (Idade Média)</span>
+          <h2>1. Origem Etimológica e Geografia em Portugal</h2>
+          <p>O sobrenome <strong>Ribeiro</strong> tem origem <em>toponímica</em> (derivada da geografia de um local). Ele vem do latim <em>Rivarius</em> (derivado de <em>Riuus</em>), que significa "pequeno rio", "riacho" ou "córrego". Era atribuído às famílias que habitavam próximo a cursos d'água.</p>
+          <p>Sua consolidação ocorreu no Norte de Portugal, especialmente entre as regiões dos rios Minho e Douro, áreas abundantes em recursos hídricos.</p>
+          <div class="detail-box">
+            <ul>
+              <li><strong>Raízes Nobres:</strong> D. Dinis Ribeiro (século XIII) é apontado por genealogistas como um dos cavaleiros pioneiros a formalizar a linhagem da família Ribeiro no Reino de Portugal.</li>
+              <li><strong>Brasão e Heráldica:</strong> O brasão tradicional dos Ribeiros conta com faixas prateadas/azuis sobre fundo dourado/vermelho, simbolizando os rios e a lealdade militar.</li>
+            </ul>
           </div>
-        </li>
-        <li>
-          <div class="node">2. Chegada ao Brasil</div>
-          <div class="sub-item">
-            • Séculos XVI e XVII (Litoral)<br>
-            • Miscigenação e batismo de nativos/escravizados<br>
-            • Bandeirantes expandem ao interior (MG/SP)
+        </div>
+      </div>
+
+      <!-- FASE 2 -->
+      <div class="timeline-item">
+        <div class="timeline-node">2</div>
+        <div class="timeline-content">
+          <span class="date-tag">Séculos XVI e XVII</span>
+          <h2>2. Chegada ao Brasil Colonial e Miscigenação</h2>
+          <p>Com o início do povoamento colonial do Brasil a partir de 1530, colonos portugueses com o sobrenome Ribeiro desembarcaram nas Capitanias Hereditárias (Pernambuco, Bahia, São Vicente e Rio de Janeiro).</p>
+          <p>Ao longo dos séculos XVI e XVII, o sobrenome deixou de ser exclusivo de portugueses europeus devido ao intenso processo de batismo e aculturação.</p>
+          <div class="detail-box">
+            <ul>
+              <li><strong>Batismos Indígenas:</strong> Padres e jesuítas batizavam povos nativos catequizados concedendo-lhes sobrenomes portugueses populares como Ribeiro.</li>
+              <li><strong>População Afro-brasileira:</strong> Pessoas escravizadas libertas ou batizadas frequentemente recebiam o sobrenome de seus padroeiros, disseminando o sobrenome em todas as camadas sociais.</li>
+            </ul>
           </div>
-        </li>
-        <li>
-          <div class="node">3. Rumo ao Sul</div>
-          <div class="sub-item">
-            • Tropeirismo (Sécs. XVIII-XIX)<br>
-            • Rota Sorocaba-RS<br>
-            • Fixação em Curitiba e Campos Gerais
+        </div>
+      </div>
+
+      <!-- FASE 3 -->
+      <div class="timeline-item">
+        <div class="timeline-node">3</div>
+        <div class="timeline-content">
+          <span class="date-tag">Século XVIII</span>
+          <h2>3. As Bandeiras e Expansão para o Interior (SP e MG)</h2>
+          <p>Durante o Ciclo do Ouro e das Entradas e Bandeiras, famílias Ribeiro deslocaram-se do litoral paulista e fluminense rumo ao interior, estabelecendo-se na Capitania de São Paulo e no Sul de Minas Gerais.</p>
+          <p>Essas rotas de exploração criaram entrepostos rurais e povoamentos ao longo de vales de rios, mantendo a relação histórica do nome com a geografia hídrica.</p>
+          <div class="detail-box">
+            <ul>
+              <li><strong>Povoamento das Rotas:</strong> Estabelecimento de fazendas de gado e pousos de viagem.</li>
+              <li><strong>Precursores da Marcha para o Sul:</strong> Ramos paulistas da família começaram a se movimentar rumo aos territórios do Sul em busca de terras e comércio.</li>
+            </ul>
           </div>
-        </li>
-        <li>
-          <div class="node highlight">4. Chegada a Laranjal - PR</div>
-          <div class="sub-item">
-            • Ocupação do Centro-Sul (Séc. XX)<br>
-            • Desmembramento de Palmital/Pitanga<br>
-            • Famílias pioneiras na agricultura e madeira<br>
-            • Legado político e cultural local
+        </div>
+      </div>
+
+      <!-- FASE 4 -->
+      <div class="timeline-item">
+        <div class="timeline-node">4</div>
+        <div class="timeline-content">
+          <span class="date-tag">Séculos XVIII e XIX</span>
+          <h2>4. O Tropeirismo e a Chegada ao Paraná</h2>
+          <p>A consolidação da presença do sobrenome Ribeiro no Paraná está profundamente ligada ao <strong>Tropeirismo</strong>. Tropeiros conduziam tropas de mulas e gado ao longo do Caminho das Tropas (ligando o Rio Grande do Sul a Sorocaba-SP).</p>
+          <p>Muitos membros da família Ribeiro se fixaram em vilas estratégicas do trajeto paranaense, como Lapa, Castro, Ponta Grossa (Campos Gerais) e Curitiba.</p>
+          <div class="detail-box">
+            <ul>
+              <li><strong>Fixação nos Campos Gerais:</strong> Compra de sesmarias e fundação de fazendas de criação.</li>
+              <li><strong>Ciclo da Erva-Mate e Madeira:</strong> No século XIX, ramos da família participaram do crescimento do Paraná, ajudando na colonização do interior.</li>
+            </ul>
           </div>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
+        </div>
+      </div>
+
+      <!-- FASE 5 -->
+      <div class="timeline-item highlight">
+        <div class="timeline-node">5</div>
+        <div class="timeline-content">
+          <span class="date-tag">Século XX</span>
+          <h2>5. A Chegada e Fixação em Laranjal - PR</h2>
+          <p>No século XX, a marcha de ocupação do interior paranaense impulsionou famílias rumo à região Centro-Sul do estado. Famílias Ribeiro deslocaram-se dos Campos Gerais e de municípios vizinhos (como Pitanga, Guarapuava e Palmital) em busca de novas oportunidades agrícolas.</p>
+          <p>Participaram do desbravamento da região entre o Rio Palmital e Rio Piquiri, local onde se estruturou o município de <strong>Laranjal</strong>.</p>
+          <div class="detail-box">
+            <ul>
+              <li><strong>Trabalho Pioneiro:</strong> Atuação na abertura de matas, serrarias, cultivo de milho, feijão e pecuária familiar.</li>
+              <li><strong>Emancipação e Comunidade:</strong> Os Ribeiro integraram a formação social, religiosa e política local, ajudando a construir os alicerces de Laranjal.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Card de Conclusão -->
+    <div class="summary-card">
+      <h3>Conclusão e Resumo para Apresentação</h3>
+      <p>A história do sobrenome <strong>Ribeiro</strong> reflete a própria formação do Brasil: nasceu nas margens dos rios de Portugal na Idade Média, atravessou o Atlântico na colonização, expandiu-se pela miscigenação e ocupou o sertão brasileiro pelas trilhas dos tropeiros, até fincar raízes no município de Laranjal, no Paraná.</p>
+    </div>
+
+    <footer>
+      <p>Trabalho de História • Trajetória das Famílias e Formação do Paraná</p>
+    </footer>
+  </div>
 
 </body>
 </html>
