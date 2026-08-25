@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,7 @@
   <title>A Saga dos Ribeiro e Ferreira: Do Velho Mundo à Colonização de Laranjal-PR</title>
   <style>
     :root {
-      --bg-canvas: #df77b7;        /* Pergaminho antigo denso */
+      --bg-canvas: #e8e3d9;        /* Pergaminho antigo denso */
       --card-bg: #fdfbf7;          /* Papel de carta marfim */
       --text-main: #1c1a17;        /* Grafite de alta densidade */
       --text-muted: #4a453e;      /* Sépia escuro */
@@ -16,7 +16,7 @@
       --c-ribeiro: #8c3a2b;       /* Terracota / Vinho Histórico */
       --c-ferreira: #2a5a44;      /* Verde Esmeralda Arqueológico */
       --c-shared: #2b4c6f;        /* Azul Marinho Antigo */
-      --c-gold: #a043bd;          /* Ouro Ocre */
+      --c-gold: #b37d14;          /* Ouro Ocre */
       --c-purple: #5c3c67;        /* Púrpura Imperial */
       
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -37,7 +37,7 @@
     }
 
     .container {
-      max-width: 1600px; /* Tela bem ampla para o mapa gigante */
+      max-width: 1600px;
       margin: 0 auto;
     }
 
@@ -103,6 +103,18 @@
       color: var(--text-main);
       margin-bottom: 12px;
       font-weight: normal;
+    }
+
+    /* Estilo da Imagem em Destaque */
+    .central-image {
+      max-width: 350px;
+      width: 100%;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+      border-radius: 10px;
+      border: 2px solid var(--border-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .central-core p {
@@ -245,9 +257,13 @@
 
     <div class="mindmap">
       
-      <!-- NÓ CENTRAL GIGANTE -->
+      <!-- NÓ CENTRAL GIGANTE COM A IMAGEM -->
       <div class="central-core">
         <h2>Ponto de Convergência Histórica</h2>
+        
+        <!-- TAG DE IMAGEM INSERIDA AQUI -->
+        <img src="COLOQUE_O_LINK_OU_NOME_DA_SUA_IMAGEM_AQUI.jpg" alt="Ilustração Histórica Ribeiro e Ferreira" class="central-image">
+
         <p>Como a união das linhagens Ribeiro e Ferreira impulsionou o desenvolvimento econômico, a ocupação das terras e a criação da infraestrutura social de Laranjal - PR</p>
       </div>
 
