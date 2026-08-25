@@ -1,21 +1,20 @@
-><!DOCTYPE html>
+><<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Tradição das Famílias Ribeiro e Ferreira: De Portugal a Laranjal-PR</title>
+  <title>Gênese e Travessia: Ribeiro & Ferreira</title>
   <style>
     :root {
-      --primary: #1b3b6f;
-      --secondary: #219ebc;
-      --accent-ribeiro: #e63946;
-      --accent-ferreira: #f77f00;
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #334155;
-      --shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      --bg-primary: #f4f1ea;        /* Tom de pergaminho suave */
+      --card-bg: #fdfbf7;           /* Off-white quente */
+      --text-main: #2b2825;         /* Grafite escuro / Café */
+      --text-muted: #5c554e;       /* Marrom sépia suave */
+      --border-color: #d8d0c5;     /* Borda neutra */
+      --accent-ribeiro: #8c6d58;   /* Sépia / Bronze */
+      --accent-ferreira: #5e6b5c;  /* Verde Oliva Arqueológico */
+      --accent-shared: #4a5a6a;    /* Azul Cinzento Clássico */
+      --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     }
 
     * {
@@ -25,83 +24,94 @@
     }
 
     body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: var(--bg);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background-color: var(--bg-primary);
       color: var(--text-main);
-      line-height: 1.7;
+      line-height: 1.8;
       padding: 40px 20px;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
+    /* Cabeçalho Histórico */
     header {
       text-align: center;
-      margin-bottom: 50px;
-      padding: 40px 20px;
-      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-      border: 1px solid var(--border);
-      border-radius: 20px;
+      padding: 50px 30px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
       box-shadow: var(--shadow);
+      margin-bottom: 50px;
+      position: relative;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      background: linear-gradient(90deg, #60a5fa, #f97316);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    header p {
-      color: var(--text-muted);
-      font-size: 1.1rem;
+    header::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 2px;
+      background-color: var(--accent-ribeiro);
+      margin: 20px auto 0;
     }
 
     .badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.1);
-      color: #38bdf8;
-      padding: 4px 15px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 15px;
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      color: var(--text-main);
+      font-weight: normal;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 750px;
+      margin: 0 auto;
     }
 
     .legend {
       display: flex;
       justify-content: center;
-      gap: 25px;
-      margin-top: 20px;
-      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 25px;
+      font-family: sans-serif;
+      font-size: 0.85rem;
     }
 
     .legend-item {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.95rem;
+      color: var(--text-muted);
     }
 
     .dot {
-      width: 14px;
-      height: 14px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
     }
 
     .dot.ribeiro { background-color: var(--accent-ribeiro); }
     .dot.ferreira { background-color: var(--accent-ferreira); }
-    .dot.ambos { background-color: var(--secondary); }
+    .dot.shared { background-color: var(--accent-shared); }
 
-    /* Timeline Styling */
+    /* Estrutura da Linha do Tempo */
     .timeline {
       position: relative;
-      padding: 30px 0;
+      padding: 20px 0;
     }
 
     .timeline::before {
@@ -110,16 +120,16 @@
       top: 0;
       bottom: 0;
       left: 50%;
-      width: 4px;
-      background: var(--border);
+      width: 1px;
+      background-color: var(--border-color);
       transform: translateX(-50%);
     }
 
     .timeline-item {
       position: relative;
-      margin-bottom: 60px;
-      width: 100%;
+      margin-bottom: 50px;
       display: flex;
+      width: 100%;
     }
 
     .timeline-item:nth-child(odd) { justify-content: flex-start; }
@@ -130,60 +140,58 @@
       top: 20px;
       left: 50%;
       transform: translateX(-50%);
-      width: 48px;
-      height: 48px;
+      width: 36px;
+      height: 36px;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
       border-radius: 50%;
-      background: var(--card-bg);
-      border: 4px solid var(--secondary);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: bold;
-      z-index: 10;
-      box-shadow: 0 0 15px rgba(33, 158, 188, 0.4);
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      z-index: 5;
     }
 
     .content {
       width: 45%;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
       padding: 25px;
       box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
-    }
-
-    .content:hover {
-      transform: translateY(-5px);
     }
 
     .era-tag {
-      font-size: 0.8rem;
-      font-weight: bold;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      color: #38bdf8;
-      display: inline-block;
-      margin-bottom: 10px;
+      font-family: sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent-shared);
+      margin-bottom: 8px;
+      display: block;
     }
 
     .content h2 {
       font-size: 1.3rem;
-      margin-bottom: 15px;
+      font-weight: normal;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--bg-primary);
+      padding-bottom: 8px;
     }
 
     .topics-grid {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 15px;
     }
 
     .topic-card {
-      background: rgba(15, 23, 42, 0.6);
-      border-radius: 8px;
       padding: 12px 15px;
-      border-left: 4px solid var(--secondary);
+      border-left: 3px solid var(--accent-shared);
+      background-color: var(--bg-primary);
+      border-radius: 0 4px 4px 0;
     }
 
     .topic-card.ribeiro { border-left-color: var(--accent-ribeiro); }
@@ -191,32 +199,34 @@
 
     .topic-card h3 {
       font-size: 0.95rem;
-      color: #f1f5f9;
-      margin-bottom: 4px;
+      color: var(--text-main);
+      margin-bottom: 5px;
       display: flex;
       justify-content: space-between;
+      font-weight: bold;
     }
 
     .topic-card p {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
       text-align: justify;
     }
 
     footer {
       text-align: center;
-      margin-top: 60px;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border);
+      margin-top: 50px;
       padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
     @media (max-width: 768px) {
       .timeline::before { left: 20px; }
       .node { left: 20px; }
       .timeline-item { justify-content: flex-start !important; }
-      .content { width: calc(100% - 60px); margin-left: 60px; }
+      .content { width: calc(100% - 50px); margin-left: 50px; }
     }
   </style>
 </head>
@@ -224,14 +234,14 @@
 
   <div class="container">
     <header>
-      <span class="badge">Pesquisa Histórica e Genealógica</span>
-      <h1>Trajetória das Famílias Ribeiro e Ferreira</h1>
-      <p>A reconstituição das origens ibéricas, chegada ao Brasil, expansão paranaense e colonização de Laranjal - PR</p>
+      <span class="badge">Pesquisa Histórica e Documental</span>
+      <h1>Gênese e Travessia: As Linhagens Ribeiro e Ferreira</h1>
+      <p>Uma reconstituição da rota histórica dos sobrenomes: da Europa medieval às paisagens do Paraná e ao povoamento de Laranjal - PR</p>
       
       <div class="legend">
-        <div class="legend-item"><span class="dot ribeiro"></span> Família Ribeiro</div>
-        <div class="legend-item"><span class="dot ferreira"></span> Família Ferreira</div>
-        <div class="legend-item"><span class="dot ambos"></span> Trajetória Conjunta</div>
+        <div class="legend-item"><span class="dot ribeiro"></span> Sobrenome Ribeiro</div>
+        <div class="legend-item"><span class="dot ferreira"></span> Sobrenome Ferreira</div>
+        <div class="legend-item"><span class="dot shared"></span> Rota Histórica Conjunta</div>
       </div>
     </header>
 
@@ -241,18 +251,23 @@
       <div class="timeline-item">
         <div class="node">I</div>
         <div class="content">
-          <span class="era-tag">SÉCULOS XI AO XIV — IDADE MÉDIA</span>
-          <h2>1. Origem Europeia e Etimologia na Península Ibérica</h2>
+          <span class="era-tag">Séculos XI ao XIV • Europa Medieval</span>
+          <h2>1. Raízes Ibéricas e Significado Etimológico</h2>
           
           <div class="topics-grid">
             <div class="topic-card ribeiro">
-              <h3>Sobrenome Ribeiro <span>(Toponímico)</span></h3>
-              <p>Origem do latim <i>Rivarius</i> (pequeno rio/riacho). Surgiu no Norte de Portugal (Minho e Douro). Famílias ligadas ao cavaleiro D. Dinis Ribeiro (Séc. XIII) que habitavam margens fluviais estrategicamente férteis.</p>
+              <h3>Ribeiro: Origem Geografia e Fluviática</h3>
+              <p>Derivado do latim <i>Rivarius</i> (morador próximo a riachos). Teve origem no Norte de Portugal (região entre os rios Minho e Douro). O cavaleiro D. Dinis Ribeiro (Séc. XIII) foi um dos primeiros a consolidar a nobreza da linhagem.</p>
             </div>
 
             <div class="topic-card ferreira">
-              <h3>Sobrenome Ferreira <span>(Ocupacional / Toponímico)</span></h3>
-              <p>Origem do latim <i>Ferraria</i> (mina de ferro ou oficina de ferreiro). Associado às ricas áreas de mineração em Espanha e ao pátio nobre de Dom Dinis de Portugal. D. Roderico Ferraria é tido como um dos patriarcas da linhagem.</p>
+              <h3>Ferreira: Mineração e Metalurgia Medieval</h3>
+              <p>Origem do latim <i>Ferraria</i> (terra rica em ferro ou oficina de ferreiro). Associado a D. Roderico Ferraria na Península Ibérica, ligado a vilas medievais portuguesas dedicadas à extração mineral e forja.</p>
+            </div>
+
+            <div class="topic-card">
+              <h3>Heráldica e Brasões de Família</h3>
+              <p>Ambos os nomes possuem brasões reconhecidos na heráldica portuguesa clássica: o de Ribeiro ostenta faixas prateadas lembrando águas fluviais; o de Ferreira exibe quatro faixas em campo de ouro com estacas metálicas.</p>
             </div>
           </div>
         </div>
@@ -262,18 +277,23 @@
       <div class="timeline-item">
         <div class="node">II</div>
         <div class="content">
-          <span class="era-tag">SÉCULOS XVI E XVII — PERÍODO COLONIAL</span>
-          <h2>2. Desembarque no Brasil e Processos Sociais</h2>
+          <span class="era-tag">Séculos XVI e XVII • Brasil Colonial</span>
+          <h2>2. O Desembarque na América Portuguesa</h2>
           
           <div class="topics-grid">
             <div class="topic-card ribeiro">
-              <h3>Ribeiro no Brasil Colonial</h3>
-              <p>Chegaram nas primeiras caravelas e ocuparam as Capitanias de São Vicente, Rio de Janeiro e Bahia. O nome expandiu-se com o batismo e catequização de povos originários e libertos pela Igreja.</p>
+              <h3>Capitanias e Expansão Litorânea</h3>
+              <p>Os primeiros com o sobrenome Ribeiro desembarcaram nas capitanias de São Vicente, Bahia e Rio de Janeiro, atuando na administração colonial e no povoamento inicial.</p>
             </div>
 
             <div class="topic-card ferreira">
-              <h3>Ferreira no Brasil Colonial</h3>
-              <p>Pioneiros em Pernambuco e Bahia ligados ao cultivo da cana-de-açúcar, fornecimento de artigos em ferro e navegação. Um dos sobrenomes mais difundidos entre colonos e comerciantes europeus.</p>
+              <h3>Atividade Comercial e Ciclo do Açúcar</h3>
+              <p>Famílias Ferreira fixaram-se no Nordeste açucareiro (Pernambuco e Bahia) e no litoral sul, atuando no comércio marítimo, forja de engenhos e transporte de mercadorias.</p>
+            </div>
+
+            <div class="topic-card">
+              <h3>Batismos e Adoção Cultural dos Nomes</h3>
+              <p>No Brasil colonial, Ribeiro e Ferreira foram amplamente adotados por populações indígenas catequizadas e afro-brasileiras libertas via batismo religioso, tornando-se sobrenomes universais e diversos.</p>
             </div>
           </div>
         </div>
@@ -283,18 +303,18 @@
       <div class="timeline-item">
         <div class="node">III</div>
         <div class="content">
-          <span class="era-tag">SÉCULO XVIII — INTERIORIZAÇÃO E TROPEIRISMO</span>
-          <h2>3. O Caminho das Bandeiras e a Rota do Sul</h2>
+          <span class="era-tag">Século XVIII • Século das Luzes e Mineração</span>
+          <h2>3. O Bandeirismo e o Tropeirismo Rumo ao Sul</h2>
           
           <div class="topics-grid">
             <div class="topic-card">
-              <h3>Bandeirismo e Mineração em SP e MG</h3>
-              <p>Ribeiros e Ferreiras integraram expedições bandeirantes do interior paulista até Minas Gerais. Com o declínio do ouro, migraram para o comércio de gado.</p>
+              <h3>A Entrada pelo Interior (SP e MG)</h3>
+              <p>Membros de ambas as famílias participaram de entradas e bandeiras rumo às Minas Gerais em busca de ouro. Com o declínio da mineração, redirecionaram forças para a pecuária extensiva.</p>
             </div>
 
             <div class="topic-card">
-              <h3>O Tropeirismo e a Entrada no Paraná</h3>
-              <p>Seguindo o Caminho das Tropas (Viamão-RS a Sorocaba-SP), fixaram-se nos Campos Gerais (Lapa, Castro, Ponta Grossa) e Curitiba, fundando fazendas e entrepostos de apoio aos viajantes.</p>
+              <h3>O Caminho das Tropas e Entrada no Paraná</h3>
+              <p>Pela rota Sorocaba–Viamão, tropeiros Ribeiro e Ferreira conduziam mulas e gado. Fixaram residência ao longo do trajeto, dando origem a vilas nos Campos Gerais do Paraná (Castro, Lapa, Ponta Grossa) e Curitiba.</p>
             </div>
           </div>
         </div>
@@ -304,18 +324,18 @@
       <div class="timeline-item">
         <div class="node">IV</div>
         <div class="content">
-          <span class="era-tag">SÉCULO XIX AO SÉCULO XX — CENTRO-SUL PARANAENSE</span>
-          <h2>4. A Ocupação do Interior Paranaense</h2>
+          <span class="era-tag">Século XIX ao XX • Sertão Paranaense</span>
+          <h2>4. A Ocupação do Centro-Sul do Paraná</h2>
           
           <div class="topics-grid">
             <div class="topic-card ribeiro">
-              <h3>Avanço do Sobrenome Ribeiro</h3>
-              <p>Com o ciclo da erva-mate e da madeira, ramos dos Ribeiro deslocaram-se dos Campos Gerais para a região de Pitanga e Guarapuava em busca de terras devolutas.</p>
+              <h3>Avanço Agrícola e Ciclo da Erva-Mate</h3>
+              <p>Ramos da família Ribeiro integraram o ciclo extrativista da erva-mate e da madeira, migrando dos Campos Gerais em direção a Guarapuava, Pitanga e Palmital.</p>
             </div>
 
             <div class="topic-card ferreira">
-              <h3>Avanço do Sobrenome Ferreira</h3>
-              <p>Pioneiros Ferreira atuaram fortemente na abertura de estradas rústicas, pecuária extensiva e estabelecimentos comerciais no centro do estado do Paraná.</p>
+              <h3>Pioneirismo em Infraestrutura e Comércio</h3>
+              <p>A linhagem Ferreira participou da abertura de carreadores, pontes rústicas e dos primeiros entrepostos comerciais do centro paranaense, viabilizando o transporte de safras.</p>
             </div>
           </div>
         </div>
@@ -325,18 +345,18 @@
       <div class="timeline-item">
         <div class="node">V</div>
         <div class="content">
-          <span class="era-tag">MÉDADOS DO SÉCULO XX — CHEGADA EM LARANJAL-PR</span>
-          <h2>5. Povoamento, Emancipação e Legado em Laranjal - PR</h2>
+          <span class="era-tag">Século XX • Colonização e Emancipação</span>
+          <h2>5. A Fixação Histórica no Município de Laranjal - PR</h2>
           
           <div class="topics-grid">
             <div class="topic-card">
-              <h3>A Desbravada do Vale do Rio Palmital e Piquiri</h3>
-              <p>Migrantes Ribeiro e Ferreira chegaram à região de Laranjal (então distrito de Palmital e Pitanga), fixando-se na extração de madeira, agricultura de subsistência e pecuária.</p>
+              <h3>Chegada ao Vale dos Rios Palmital e Piquiri</h3>
+              <p>Pioneiros Ribeiro e Ferreira estabeleceram-se na região que compõe Laranjal, dedicando-se à agricultura familiar, manejo sustentável da terra e criação pecuária.</p>
             </div>
 
             <div class="topic-card">
-              <h3>Formação Social e Emancipação Política</h3>
-              <p>As duas famílias desempenharam papéis fundamentais na construção das primeiras escolas, capelas e órgãos comunitários, figurando entre os pioneiros que viabilizaram a autonomia municipal de Laranjal-PR.</p>
+              <h3>Construção Comunitária e Legado</h3>
+              <p>As duas famílias colaboraram diretamente na fundação de escolas, capelas comunitárias e no movimento de emancipação política que consolidou o município de Laranjal - PR.</p>
             </div>
           </div>
         </div>
@@ -345,7 +365,7 @@
     </div>
 
     <footer>
-      <p>Trabalho Escolar de História • Estudo Histórico das Famílias Ribeiro e Ferreira</p>
+      <p>Trabalho de História • Estudo Genealógico e Geográfico das Famílias Pioneiras</p>
     </footer>
   </div>
 
